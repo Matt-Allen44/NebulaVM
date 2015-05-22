@@ -8,25 +8,12 @@ public class CPU {
 	NebulaUtils nUtil = new NebulaUtils();
 	public CPU(){
 		int[] program = new int[64];
-		program[0] = IS.PUSH;
-		program[1] = 12;
-		program[2] = IS.PUSH;
-		program[3] = 3;
-        program[4] = IS.PUSH;
-        program[5] = 3;
-        program[6] = IS.PUSH;
-        program[7] = 3;
-        program[8] = IS.PUSH;
-        program[9] = 3;
-
-        program[10] = IS.ADD;
-        program[11] = IS.ADD;
-        program[12] = IS.ADD;
-        program[13] = IS.ADD;
-        program[14] = IS.IPRNT;
-
-        program[15] = IS.PUSH;
-        program[16] = 3;
+        program[0] = IS.PUSH;
+        program[1] = 17;
+        program[2] = IS.PUSH;
+        program[3] = 3;
+        program[4] = IS.DIV;
+        program[5] = IS.IPRNT;
 
 		debug = new Debug(program);
 
@@ -92,31 +79,44 @@ public class CPU {
                     register[program[++pp]] = program[++pp];
                     break;
 
+                //ARITHMETIC IS DONE USING REVERSE POLISH NOTATION
                 case IS.DIV:
-                    stack[sp-1] = stack[sp] / stack[--sp];
+                    int val1 = stack[sp];
+                    int val2 = stack[--sp];
+
+                    stack[sp] = val2/val1;
                     stack[sp+1] = 0;
                     break;
 
                 case IS.MLT:
+                    //NO VAL DECLARATIONS NEEDED AS MULTIPLICATION DOES NOT DEPEND ON ORDER
+                    //USING VAL VARS WOULD BE SLOWER
                     stack[sp-1] = stack[sp] * stack[--sp];
                     stack[sp+1] = 0;
                     break;
 
                 case IS.ADD:
+                    //NO VAL DECLARATIONS NEEDED AS ADDITION DOES NOT DEPEND ON ORDER
+                    //USING VAL VARS WOULD BE SLOWER
                     stack[sp-1] = stack[sp] + stack[--sp];
                     stack[sp+1] = 0;
                     break;
 
                 case IS.SUB:
-                    stack[sp-1] = stack[sp] - stack[--sp];
+                    val1 = stack[sp];
+                    val2 = stack[--sp];
+
+                    stack[sp] = val2 - val1;
                     stack[sp+1] = 0;
                     break;
 
                 case IS.CPRNT:
-                    System.out.println((char)stack[sp]);
+                    //NOTE: CHARS WILL NOT PRINT ON NEW LINE - USE ASCII
+                    System.out.print((char)stack[sp]);
                     break;
 
                 case IS.IPRNT:
+                    //NOTE: INTEGERS WILL ALWAYS PRINT ON NEW LINE
                     System.out.println(stack[sp]);
                     break;
 
