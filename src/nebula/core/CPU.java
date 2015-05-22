@@ -3,21 +3,16 @@ package nebula.core;
 import nebula.utils.Debug;
 import nebula.utils.NebulaUtils;
 
+import java.util.Arrays;
+
 public class CPU {
 	Debug debug;
 	NebulaUtils nUtil = new NebulaUtils();
-	public CPU(){
-		int[] program = new int[64];
-        program[0] = IS.PUSH;
-        program[1] = 17;
-        program[2] = IS.PUSH;
-        program[3] = 3;
-        program[4] = IS.DIV;
-        program[5] = IS.IPRNT;
+	public CPU(int[] p){
+		int[] program = p;
+        debug = new Debug(program);
 
-		debug = new Debug(program);
-
-		debug.log("Initialising new CPU instance...");
+		debug.log("Initialising,new CPU instance...");
 		debug.log("Executing current program...");
 		debug.log("Executing program --> " + nUtil.arrayToString(program));
 
@@ -42,7 +37,7 @@ public class CPU {
 	public void execute(int program[]){
 		while(pp < program.length) {
 
-			debug.traceop(stack, register, program[pp]);
+			debug.traceop(stack, register, program[pp], pp);
 
 			switch (program[pp]) {
                 case IS.HALT:
@@ -58,9 +53,8 @@ public class CPU {
                     break;
 
                 case IS.CLR:
-                    for(int i = stack.length; i > 0; --i){
-                        stack[i] = 0;
-                    }
+                    sp = -1;
+                    stack = new int[maxStackSize];
                     break;
 
                 case IS.SPUSH:
@@ -111,7 +105,7 @@ public class CPU {
                     break;
 
                 case IS.CPRNT:
-                    //NOTE: CHARS WILL NOT PRINT ON NEW LINE - USE ASCII
+                    //NOTE: CHARS WILL NOT PRINT ON NEW LINE - USE ASCII 10
                     System.out.print((char)stack[sp]);
                     break;
 
@@ -120,7 +114,10 @@ public class CPU {
                     System.out.println(stack[sp]);
                     break;
 
-                //IMPLEMENT FLOW COMMANDS HERE
+                //TODO: FIX BUG THAT CRASHES WHEN 'GOTO 0'
+                case IS.GOTO:
+                    pp = program[++pp] - 1;
+                    break;
             }
             debug.tracemem(stack, sp, register, program[pp]);
 			pp++;
@@ -129,6 +126,25 @@ public class CPU {
 
 
 	public static void main(String[] args){
-		CPU nebula = new CPU();
+        int[] p = new int[args.length];
+        int argOffset = 0;
+        boolean readProgram = false;
+
+        for(int i = 0; i < args.length; i++){
+            if(readProgram) {
+                p[i-argOffset-1] = Integer.valueOf(args[i]);
+            } else {
+                if(args[i].equals("--program")){
+                    argOffset = i;
+                    readProgram = true;
+                }
+            }
+        }
+
+        if(readProgram == true) {
+            CPU nebula = new CPU(p);
+        } else {
+            System.out.println("[NEBULA NOT STARTED] NO PROGRAM INPUTED - USE --PROGRAM [YOU PROGRAM] TO INPUT ONE");
+        }
 	}
 }

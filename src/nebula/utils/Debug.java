@@ -22,8 +22,8 @@ public class Debug {
 	}
 
     private String traceString = "";
-	public void traceop(int[] stack, int[] register, int opCode){
-			traceString += ("[Trace] " + IS.names[opCode] + " (" + opCode + ")");
+	public void traceop(int[] stack, int[] register, int opCode, int pp){
+			traceString += (pp + " [Trace] " + IS.names[opCode] + " (" + opCode + ")");
 	}
 
 	public void tracemem(int[] stack, int sp, int[] register, int opCode){
@@ -35,12 +35,12 @@ public class Debug {
 
 			traceString += "\t\t --> Stack [" + sp + "]: " + nUtils.arrayToString(stack);
 
-            for(int i = traceString.length(); i < 30 + stack.length*2; i++){
+            for(int i = traceString.length(); i < 30 + stack.length*3; i++){
                 traceString += " ";
             }
             traceString += " \t\t --> Register: " + nUtils.arrayToString(register);
 
-            System.out.println(traceString + " (LEN:" + traceString.length() + ")");
+            System.out.println(traceString);
             traceString = "";
 		}
 	}
