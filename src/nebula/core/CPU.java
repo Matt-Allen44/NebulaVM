@@ -4,12 +4,9 @@ import nebula.utils.Debug;
 import nebula.utils.NebulaUtils;
 
 public class CPU {
-	Debug debug = new Debug();
+	Debug debug;
 	NebulaUtils nUtil = new NebulaUtils();
 	public CPU(){
-		debug.log("Initialising new CPU instance...");
-		debug.log("Executing current program...");
-		
 		int[] program = new int[64];
 		program[0] = IS.PUSH;
 		program[1] = 12;
@@ -18,13 +15,21 @@ public class CPU {
 		program[4] = IS.ADD;
 		program[5] = IS.IPRNT;
 
-		System.out.println("Executing program" + nUtil.arrayToString(program));
+		debug = new Debug(program);
+
+		debug.log("Initialising new CPU instance...");
+		debug.log("Executing current program...");
+		debug.log("Executing program --> " + nUtil.arrayToString(program));
+
+		long delta = System.currentTimeMillis();
 		execute(program);
-		debug.log("Execution completed...");
+
+		long execTime = System.currentTimeMillis()-delta;
+		System.out.println("Execution completed in " + execTime + "ms...");
 	}
 	
 	int sp = 0; //sp - stack pointer
-	int hp = 0; //hp - heap pointer
+	int hp = 0; //hp - register pointer
 	int pp = 0; //pp - program pointer
 
 	//Size of each int # of Integers
@@ -32,10 +37,12 @@ public class CPU {
 	int maxHeapSize = 128;
 
 	int stack[] = new int[maxStackSize];
-	int heap[] = new int[maxHeapSize];
+	int register[] = new int[maxHeapSize];
 	
 	public void execute(int program[]){
 		while(pp < program.length) {
+
+			debug.traceop(stack, register, program[pp]);
 			switch (program[pp]) {
 			case IS.HALT:
 				return;
@@ -48,15 +55,16 @@ public class CPU {
 				stack[sp+1] = 0;
 				break;
 			case IS.IPRNT:
-				System.out.println(stack[sp]);
+				//System.out.println(stack[sp]);
 				break;
 			}
-			
-			debug.trace(stack, heap, program[pp]);
+
+			debug.tracemem(stack, register, program[pp]);
 			pp++;
 		}
 	}
-	
+
+
 	public static void main(String[] args){
 		CPU nebula = new CPU();
 	}

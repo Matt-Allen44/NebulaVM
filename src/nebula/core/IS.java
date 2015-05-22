@@ -22,8 +22,6 @@ public class IS {
 	public static final int GIL = 16;
 	public static final int GIG = 17;
 
-	public static enum opCodes {
-		HALT, PUSH, POP, CLR, SPUSH, RPOP, RCOP, RPUSH, DIV, MLT, ADD, SUB, CPRNT, IPRNT, GOTO, GIE, GIL, GIG
-	}
-
+	public static final String[] names = {"HALT", "PUSH", "POP", "CLR", "SPUSH", "RPOP", "RCOP", "RPUSH", "DIV", "MLT", "ADD", "SUB", "CPRNT", "IPRNT", "GOTO", "GIE", "GIL", "GIG"};
+	public static final int[] args = {0,1,0,0,1,1,1,2,0,0,0,0,0,0,1,1,1,1};
 }
