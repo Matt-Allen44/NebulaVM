@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a51b95e6-6686-4145-8b88-ab1de6afdfa4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NebulaResources/NebulaVM.docx" afterPath="$PROJECT_DIR$/NebulaResources/NebulaVM.docx" />
+      <change type="DELETED" beforePath="C:\Users\Daz\Documents\NebulaVM\NebulaResources\~$bulaVM.docx" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/nebula/core/CPU.class" afterPath="$PROJECT_DIR$/bin/nebula/core/CPU.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/nebula/utils/Debug.class" afterPath="$PROJECT_DIR$/bin/nebula/utils/Debug.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/nebula/utils/NebulaUtils.class" afterPath="$PROJECT_DIR$/bin/nebula/utils/NebulaUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nebula/core/CPU.java" afterPath="$PROJECT_DIR$/src/nebula/core/CPU.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nebula/utils/Debug.java" afterPath="$PROJECT_DIR$/src/nebula/utils/Debug.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/nebula/utils/NebulaUtils.java" afterPath="$PROJECT_DIR$/src/nebula/utils/NebulaUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NebulaVM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,11 +37,11 @@
       <file leaf-file-name="CPU.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/nebula/core/CPU.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.88797367">
-              <caret line="107" column="46" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.38385502">
+              <caret line="95" column="45" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="45" />
               <folding>
-                <element signature="e#3047#3048#0" expanded="true" />
-                <element signature="e#3076#3077#0" expanded="true" />
+                <element signature="e#3410#3411#0" expanded="true" />
+                <element signature="e#3439#3440#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,11 +51,21 @@
         <entry file="file://$PROJECT_DIR$/src/nebula/utils/Debug.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+              <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
               <folding>
                 <element signature="e#160#161#0" expanded="true" />
                 <element signature="e#187#188#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NebulaUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/nebula/utils/NebulaUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="39" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,6 +103,7 @@
         <option value="$PROJECT_DIR$/src/nebula/core/MEMORY.java" />
         <option value="$PROJECT_DIR$/src/nebula/core/IS.java" />
         <option value="$PROJECT_DIR$/src/nebula/utils/Debug.java" />
+        <option value="$PROJECT_DIR$/src/nebula/utils/NebulaUtils.java" />
         <option value="$PROJECT_DIR$/src/nebula/core/CPU.java" />
       </list>
     </option>
@@ -442,8 +459,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3047#3048#0" expanded="true" />
-            <element signature="e#3076#3077#0" expanded="true" />
+            <element signature="e#3410#3411#0" expanded="true" />
+            <element signature="e#3439#3440#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -472,8 +489,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3047#3048#0" expanded="true" />
-            <element signature="e#3076#3077#0" expanded="true" />
+            <element signature="e#3410#3411#0" expanded="true" />
+            <element signature="e#3439#3440#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -502,8 +519,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3047#3048#0" expanded="true" />
-            <element signature="e#3076#3077#0" expanded="true" />
+            <element signature="e#3410#3411#0" expanded="true" />
+            <element signature="e#3439#3440#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -527,7 +544,7 @@
     <entry file="file://$PROJECT_DIR$/src/nebula/utils/Debug.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
           <folding>
             <element signature="e#160#161#0" expanded="true" />
             <element signature="e#187#188#0" expanded="true" />
@@ -535,13 +552,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/nebula/utils/NebulaUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/nebula/core/CPU.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88797367">
-          <caret line="107" column="46" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.38385502">
+          <caret line="95" column="45" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="45" />
           <folding>
-            <element signature="e#3047#3048#0" expanded="true" />
-            <element signature="e#3076#3077#0" expanded="true" />
+            <element signature="e#3410#3411#0" expanded="true" />
+            <element signature="e#3439#3440#0" expanded="true" />
           </folding>
         </state>
       </provider>

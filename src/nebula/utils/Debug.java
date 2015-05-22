@@ -18,7 +18,7 @@ public class Debug {
 	}
 	
 	public Boolean shouldTrace = true;
-	public Boolean shouldLog = true;
+	public Boolean shouldLog = false;
 	
 	public NebulaUtils nUtils = new NebulaUtils();
 	
@@ -28,9 +28,9 @@ public class Debug {
 		}
 	}
 
-	public void tracemem(int[] stack, int[] register, int opCode){
+	public void tracemem(int[] stack, int sp, int[] register, int opCode){
 		if(shouldTrace){
-			System.out.println("\t\t --> Stack: " + nUtils.arrayToString(stack) + " \t\t --> Register: " + nUtils.arrayToString(register));
+			System.out.println("\t\t --> Stack [" + sp + "]: " + nUtils.arrayToString(stack) + " \t\t --> Register: " + nUtils.arrayToString(register));
 		}
 	}
 }

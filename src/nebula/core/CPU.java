@@ -12,8 +12,21 @@ public class CPU {
 		program[1] = 12;
 		program[2] = IS.PUSH;
 		program[3] = 3;
-		program[4] = IS.ADD;
-		program[5] = IS.IPRNT;
+        program[4] = IS.PUSH;
+        program[5] = 3;
+        program[6] = IS.PUSH;
+        program[7] = 3;
+        program[8] = IS.PUSH;
+        program[9] = 3;
+
+        program[10] = IS.ADD;
+        program[11] = IS.ADD;
+        program[12] = IS.ADD;
+        program[13] = IS.ADD;
+        program[14] = IS.IPRNT;
+
+        program[15] = IS.PUSH;
+        program[16] = 3;
 
 		debug = new Debug(program);
 
@@ -28,7 +41,7 @@ public class CPU {
 		System.out.println("Execution completed in " + execTime + "ms...");
 	}
 	
-	int sp = 0; //sp - stack pointer
+	int sp = -1; //sp - stack pointer
 	int rp = 0; //rp - register pointer
 	int pp = 0; //pp - program pointer
 
@@ -43,12 +56,14 @@ public class CPU {
 		while(pp < program.length) {
 
 			debug.traceop(stack, register, program[pp]);
+
 			switch (program[pp]) {
                 case IS.HALT:
                     return;
 
                 case IS.PUSH:
-                    stack[sp++] = program[++pp];
+                    //sp++;
+                    stack[++sp] = program[++pp];
                     break;
 
                 case IS.POP:
@@ -78,36 +93,36 @@ public class CPU {
                     break;
 
                 case IS.DIV:
-                    stack[sp-2] = stack[--sp] / stack[--sp];
+                    stack[sp-1] = stack[sp] / stack[--sp];
                     stack[sp+1] = 0;
                     break;
 
                 case IS.MLT:
-                    stack[sp-2] = stack[--sp] * stack[--sp];
+                    stack[sp-1] = stack[sp] * stack[--sp];
                     stack[sp+1] = 0;
                     break;
 
                 case IS.ADD:
-                    stack[sp-2] = stack[--sp] + stack[--sp];
+                    stack[sp-1] = stack[sp] + stack[--sp];
                     stack[sp+1] = 0;
                     break;
 
                 case IS.SUB:
-                    stack[sp-2] = stack[--sp] - stack[--sp];
+                    stack[sp-1] = stack[sp] - stack[--sp];
                     stack[sp+1] = 0;
                     break;
 
                 case IS.CPRNT:
-                    System.out.println((char)stack[sp]);
+                    //System.out.println((char)stack[sp]);
                     break;
 
                 case IS.IPRNT:
-                    System.out.println(stack[sp]);
+                   // System.out.println(stack[sp]);
                     break;
 
                 //IMPLEMENT FLOW COMMANDS HERE
             }
-			debug.tracemem(stack, register, program[pp]);
+            debug.tracemem(stack, sp, register, program[pp]);
 			pp++;
 		}
 	}
