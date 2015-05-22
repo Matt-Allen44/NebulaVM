@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #NebulaVM
 Stack Machine written in Java
 
