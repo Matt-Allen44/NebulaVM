@@ -8,8 +8,8 @@ public class Debug {
 		}
 	}
 	
-	public Boolean shouldTrace = true;
-	public Boolean shouldLog = true;
+	public Boolean shouldTrace = false;
+	public Boolean shouldLog = false;
 	
 	public NebulaUtils nUtils = new NebulaUtils();
 	

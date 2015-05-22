@@ -1,9 +1,11 @@
 package nebula.core;
 
 import nebula.utils.Debug;
+import nebula.utils.NebulaUtils;
 
 public class CPU {
 	Debug debug = new Debug();
+	NebulaUtils nUtil = new NebulaUtils();
 	public CPU(){
 		debug.log("Initialising new CPU instance...");
 		debug.log("Executing current program...");
@@ -14,8 +16,9 @@ public class CPU {
 		program[2] = IS.PUSH;
 		program[3] = 3;
 		program[4] = IS.ADD;
-		program[5] = IS.PRINT;
-		
+		program[5] = IS.IPRNT;
+
+		System.out.println("Executing program" + nUtil.arrayToString(program));
 		execute(program);
 		debug.log("Execution completed...");
 	}
@@ -23,11 +26,11 @@ public class CPU {
 	int sp = 0; //sp - stack pointer
 	int hp = 0; //hp - heap pointer
 	int pp = 0; //pp - program pointer
-	
+
 	//Size of each int # of Integers
 	int maxStackSize = 128;
 	int maxHeapSize = 128;
-	
+
 	int stack[] = new int[maxStackSize];
 	int heap[] = new int[maxHeapSize];
 	
@@ -44,7 +47,7 @@ public class CPU {
 				stack[sp-2] = stack[--sp] + stack[--sp];
 				stack[sp+1] = 0;
 				break;
-			case IS.PRINT:
+			case IS.IPRNT:
 				System.out.println(stack[sp]);
 				break;
 			}
