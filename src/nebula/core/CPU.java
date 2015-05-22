@@ -113,11 +113,11 @@ public class CPU {
                     break;
 
                 case IS.CPRNT:
-                    //System.out.println((char)stack[sp]);
+                    System.out.println((char)stack[sp]);
                     break;
 
                 case IS.IPRNT:
-                   // System.out.println(stack[sp]);
+                    System.out.println(stack[sp]);
                     break;
 
                 //IMPLEMENT FLOW COMMANDS HERE

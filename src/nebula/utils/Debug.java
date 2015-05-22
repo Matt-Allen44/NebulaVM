@@ -21,16 +21,18 @@ public class Debug {
 	public Boolean shouldLog = false;
 	
 	public NebulaUtils nUtils = new NebulaUtils();
-	
+
+    private String traceString = "";
 	public void traceop(int[] stack, int[] register, int opCode){
 		if(shouldTrace){
-			System.out.print("[Trace] " + IS.names[opCode] + " (" + opCode + ")");
+			traceString += ("[Trace] " + IS.names[opCode] + " (" + opCode + ")");
 		}
 	}
 
 	public void tracemem(int[] stack, int sp, int[] register, int opCode){
 		if(shouldTrace){
-			System.out.println("\t\t --> Stack [" + sp + "]: " + nUtils.arrayToString(stack) + " \t\t --> Register: " + nUtils.arrayToString(register));
+			System.out.println(traceString + "\t\t --> Stack [" + sp + "]: " + nUtils.arrayToString(stack) + " \t\t --> Register: " + nUtils.arrayToString(register));
+            traceString = "";
 		}
 	}
 }
