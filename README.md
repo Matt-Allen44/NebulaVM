@@ -92,19 +92,4 @@ The [YourProgram] Variable must be a series of integers representing the Nebula 
         program[36] = 10;
         program[37] = IS.CPRNT;
 ```
-=======
-<table width="100%">
-      <tr>
-      <td align="left">
-            <img  src="https://raw.githubusercontent.com/Matt-Allen44/NebulaVM/master/NebulaResources/NebulaLogo100pxLossy.png"
-                  height="64">
-            </a>
-      </td>
-      <td>
-      NebulaVM
-      </td>
-      </tr>
-</table>
->>>>>>> 6af9173ddcd968e805161d05fcbf4c0f7daa1a98
-
 
