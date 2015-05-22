@@ -4,8 +4,12 @@ import nebula.core.IS;
 
 public class Debug {
 
+    public NebulaUtils nUtils = new NebulaUtils();
     private String logPrefix = "Nebula";
     private int[] program;
+
+    public Boolean shouldTrace = true;
+    public Boolean shouldLog = true;
 
 	public Debug(int[] p){
         program = p;
@@ -16,22 +20,27 @@ public class Debug {
 			System.out.println("[" + logPrefix + "] " + s);
 		}
 	}
-	
-	public Boolean shouldTrace = true;
-	public Boolean shouldLog = false;
-	
-	public NebulaUtils nUtils = new NebulaUtils();
 
     private String traceString = "";
 	public void traceop(int[] stack, int[] register, int opCode){
-		if(shouldTrace){
 			traceString += ("[Trace] " + IS.names[opCode] + " (" + opCode + ")");
-		}
 	}
 
 	public void tracemem(int[] stack, int sp, int[] register, int opCode){
 		if(shouldTrace){
-			System.out.println(traceString + "\t\t --> Stack [" + sp + "]: " + nUtils.arrayToString(stack) + " \t\t --> Register: " + nUtils.arrayToString(register));
+
+            for(int i = traceString.length(); i < 30; i++){
+                traceString += " ";
+            }
+
+			traceString += "\t\t --> Stack [" + sp + "]: " + nUtils.arrayToString(stack);
+
+            for(int i = traceString.length(); i < 30 + stack.length*2; i++){
+                traceString += " ";
+            }
+            traceString += " \t\t --> Register: " + nUtils.arrayToString(register);
+
+            System.out.println(traceString + " (LEN:" + traceString.length() + ")");
             traceString = "";
 		}
 	}

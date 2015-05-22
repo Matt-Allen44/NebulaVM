@@ -38,7 +38,7 @@ public class CPU {
 		execute(program);
 
 		long execTime = System.currentTimeMillis()-delta;
-		System.out.println("Execution completed in " + execTime + "ms...");
+		debug.log("Execution completed in " + execTime + "ms...");
 	}
 	
 	int sp = -1; //sp - stack pointer
@@ -46,11 +46,11 @@ public class CPU {
 	int pp = 0; //pp - program pointer
 
 	//Size of each int # of Integers
-	int maxStackSize = 128;
-	int maxHeapSize = 128;
+	int maxStackSize = 32;
+	int maxRegisterSize = 32;
 
 	int stack[] = new int[maxStackSize];
-	int register[] = new int[maxHeapSize];
+	int register[] = new int[maxRegister    Size];
 	
 	public void execute(int program[]){
 		while(pp < program.length) {
