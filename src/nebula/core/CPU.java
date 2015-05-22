@@ -50,7 +50,7 @@ public class CPU {
 	int maxRegisterSize = 32;
 
 	int stack[] = new int[maxStackSize];
-	int register[] = new int[maxRegister    Size];
+	int register[] = new int[maxRegisterSize];
 	
 	public void execute(int program[]){
 		while(pp < program.length) {
