@@ -1,27 +1,8 @@
-#NebulaVM
-Stack Machine written in Java
-
-#Contributing
-To Contribute to NebulaVM send a pull request either implementing new features, or fixing issues.
-Please see the documents within NebulaResources for a guide on how to develop for NebulaVM and what needs implementing.
-
-#Building
-NebulaVM has No Dependencies 
-Build as you would any other Java application.
-
-#Running
-```
-$ java -jar nebulavm.jar --program [YourProgram]
-```
-The [YourProgram] Variable must be a series of integers representing the Nebula Instruction Set.
-
-#Examples Programs
-###Push & Add
-```
-        program[0] = IS.PUSH;
-        program[1] = 12;
-        program[2] = IS.PUSH;
-        program[3] = 3;
+Push Add Example
+	program[0] = IS.PUSH;
+	program[1] = 12;
+	program[2] = IS.PUSH;
+	program[3] = 3;
         program[4] = IS.PUSH;
         program[5] = 3;
         program[6] = IS.PUSH;
@@ -37,20 +18,16 @@ The [YourProgram] Variable must be a series of integers representing the Nebula 
 
         program[15] = IS.PUSH;
         program[16] = 3;
-```
 
-###Division Example
-```
+Division Example
         program[0] = IS.PUSH;
         program[1] = 17;
         program[2] = IS.PUSH;
         program[3] = 3;
         program[4] = IS.DIV;
         program[5] = IS.IPRNT;
-```
 
-###Hello World
-```
+Hello World
         program[0] = IS.PUSH;
         program[1] = 72;
         program[2] = IS.CPRNT;
@@ -91,5 +68,3 @@ The [YourProgram] Variable must be a series of integers representing the Nebula 
         program[35] = IS.PUSH;
         program[36] = 10;
         program[37] = IS.CPRNT;
-```
-

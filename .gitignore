@@ -1,0 +1,6 @@
+bin
+obj
+config
+.classpath
+.project
+.idea
