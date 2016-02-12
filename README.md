@@ -1,3 +1,5 @@
+#*Currently Abandoned*
+
 #NebulaVM
 Stack Machine written in Java
 
