@@ -1,7 +1,4 @@
-#*Currently Abandoned*
-
-#NebulaVM
-Stack Machine written in Java
+![StayVM](https://raw.githubusercontent.com/Matt-Allen44/NebulaVM/master/NebulaResources/NebulaBanner128px.png)
 
 #Contributing
 To Contribute to NebulaVM send a pull request either implementing new features, or fixing issues.
